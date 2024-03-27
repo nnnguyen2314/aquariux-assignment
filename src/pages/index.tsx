@@ -20,7 +20,7 @@ const IndexPage: NextPage = () => {
         <RootLayout>
             <StyledWeatherContainer>
                 <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} lg={{span: 9}}>
-                    <CurrentWeatherContainer city={city} />
+                    <CurrentWeatherContainer keyword={keyword} />
                 </Col>
             </StyledWeatherContainer>
             <StyledWeatherContainer>

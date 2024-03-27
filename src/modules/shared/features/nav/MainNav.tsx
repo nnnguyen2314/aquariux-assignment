@@ -24,7 +24,7 @@ const StyledMainNav = styled.ul`
 const menuItems = [
     {
         label: 'Home',
-        pathname: ''
+        pathname: '/'
     },
     {
         label: 'Search',
