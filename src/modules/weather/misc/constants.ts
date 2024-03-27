@@ -18,17 +18,19 @@ export const WEATHER_MEASURE_UNITS = {
 }
 
 export interface IWeatherCurrentApiParam {
-    lat: any;
-    lon: any;
+    lat?: any;
+    lon?: any;
+    q?: string;
     units?: string;
     mode?: string;
     lang?: string;
 }
 
 export interface IWeatherForecastApiParam {
-    lat: any;
-    lon: any;
-    cnt: number;
+    lat?: any;
+    lon?: any;
+    q?: string;
+    cnt?: number;
     units?: string;
     mode?: string;
     lang?: string;

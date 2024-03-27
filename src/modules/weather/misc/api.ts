@@ -4,7 +4,7 @@ import {
     WEATHER_API_KEY,
     CURRENT_STATE_API_URL,
     FORECAST_API_URL,
-    IWeatherCurrentApiParam, IWeatherForecastApiParam, WEATHER_FORECAST_MODE
+    IWeatherCurrentApiParam, IWeatherForecastApiParam, WEATHER_FORECAST_MODE, WEATHER_MEASURE_UNITS
 } from "../misc/constants";
 
 const CustomAxios = axios.create({
@@ -18,7 +18,8 @@ CustomAxios.interceptors.request.use(function (config) {
     config.params = {
         ...config.params,
         ...{
-            appid: WEATHER_API_KEY
+            appid: WEATHER_API_KEY,
+            units: WEATHER_MEASURE_UNITS.METRIC
         },
     };
 
@@ -32,7 +33,10 @@ const api = {
     fetchCurrentWeatherData: (data: IWeatherCurrentApiParam) => {
         return CustomAxios.get(CURRENT_STATE_API_URL, {params: data});
     },
-    fetchForecastData: (forecastMode: string = WEATHER_FORECAST_MODE.HOURLY, data: IWeatherForecastApiParam) => CustomAxios.get(`${FORECAST_API_URL}/${forecastMode}`, { params: data })
+    fetchForecastData: (forecastMode: string, data: IWeatherForecastApiParam) => {
+        const url = forecastMode ? `${FORECAST_API_URL}/${forecastMode}` : FORECAST_API_URL;
+        return CustomAxios.get(url, { params: data });
+    }
 };
 
 export default api;

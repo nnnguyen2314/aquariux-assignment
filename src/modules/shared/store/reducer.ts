@@ -1,12 +1,11 @@
 import {AnyAction, combineReducers} from "@reduxjs/toolkit";
 import { HYDRATE } from 'next-redux-wrapper';
-//
 import weatherCurrentSlice from '@modules/weather/store/weatherCurrentSlice';
-// import videoSlice from '@modules/video/store/videoSlice';
-// import trendingGifSlice from '@modules/gif/store/trendingGifSlice';
-// import gifSearchSlice from '@modules/gif/store/gifSearchSlice';
+import weatherForecastSlice from '@modules/weather/store/weatherForecastSlice';
+
 export const combinedReducer = combineReducers({
-    weatherCurrent: weatherCurrentSlice
+    weatherCurrent: weatherCurrentSlice,
+    weatherForecast: weatherForecastSlice
 });
 
 const reducer = (state: ReturnType<typeof combinedReducer>, action: AnyAction) => {

@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import RootLayout from "@modules/shared/features/layout/RootLayout";
-import IndexPage from "@/pages";
 
 const SearchPage: NextPage = () => {
     return (

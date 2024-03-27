@@ -1,39 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import useWeatherCurrentService from '@modules/weather/hooks/useWeatherCurrentService';
-import {WEATHER_MEASURE_UNITS} from "@modules/weather/misc/constants";
+import {IWeatherCurrentApiParam, WEATHER_MEASURE_UNITS} from "@modules/weather/misc/constants";
 import CurrentWeatherCard from "@modules/weather/features/currentWeather/components/CurrentWeatherCard";
 
-const CurrentWeatherContainer = () => {
-    const [lat, setLat] = useState<number>();
-    const [long, setLong] = useState<number>();
+interface CurrentWeatherContainerProps {
+    city?: any;
+}
+
+const CurrentWeatherContainer = (props: CurrentWeatherContainerProps) => {
     const { selector, handleFetchCurrentWeatherData } = useWeatherCurrentService();
 
-    const fetchCurrentWeatherData = (data: { lat: number, long: number } ) => {
-        handleFetchCurrentWeatherData({
-            lat: data.lat,
-            lon: data.long,
-            units: WEATHER_MEASURE_UNITS.METRIC
-        }).then(result => {
+    const fetchCurrentWeatherData = (data: IWeatherCurrentApiParam ) => {
+        handleFetchCurrentWeatherData(data).then(result => {
             console.log(result);
         }).catch((err) => {
             console.log(err);
         });
-    }
+    };
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        if (props?.city) {
             fetchCurrentWeatherData({
-                lat: position.coords.latitude,
-                long: position.coords.longitude
+                q: props?.city
             });
-        });
+        } else {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                fetchCurrentWeatherData({
+                    lat: position.coords.latitude,
+                    lon: position.coords.longitude
+                });
+            });
+        }
     }, [handleFetchCurrentWeatherData]);
 
-    return (
-        <div>
-            <CurrentWeatherCard weatherData={selector.currentWeatherData} />
-        </div>
-    )
+    return <CurrentWeatherCard weatherData={selector.currentWeatherData} />
 };
 
 export default CurrentWeatherContainer;
