@@ -32,7 +32,11 @@ const menuItems = [
     }
 ];
 
-const MainNav = () => {
+interface MainNavProps {
+    displayMode: 'horizontal';
+}
+
+const MainNav = (props: MainNavProps) => {
     const router = useRouter();
 
     return (
