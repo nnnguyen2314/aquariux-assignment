@@ -46,8 +46,6 @@ interface CurrentWeatherCardProps {
 }
 
 const CurrentWeatherCard = (props: CurrentWeatherCardProps) => {
-    console.log(props);
-
     return props.weatherData && (
         <StyledCurrentWeatherCardContainer className="current-weather-card-container">
             <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} lg={{span: 9}}>
@@ -57,7 +55,7 @@ const CurrentWeatherCard = (props: CurrentWeatherCardProps) => {
                             <label>{moment().format('LL')}</label>
                         </Col>
                         <Col md={{span: 12}}>
-                            <label>{props?.weatherData?.name}</label>
+                            <label>{`${props?.weatherData?.name}, ${props?.weatherData?.sys?.country}`}</label>
                         </Col>
                     </Row>}>
                     <Row className="current-weather-card-content-row">
@@ -72,7 +70,7 @@ const CurrentWeatherCard = (props: CurrentWeatherCardProps) => {
                     <Row className="current-weather-card-content-row">
                         <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} lg={{span: 8}} className="current-weather-card-content-col">
                             <div>Humidity</div>
-                            <h2>{props?.weatherData?.main?.humidity}</h2>
+                            <h2>{`${props?.weatherData?.main?.humidity} %`}</h2>
                         </Col>
                         <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} lg={{span: 8}} className="current-weather-card-content-col">
                             <div>Winds</div>
@@ -81,13 +79,13 @@ const CurrentWeatherCard = (props: CurrentWeatherCardProps) => {
                                     <svg width="18" height="18" viewBox="0 0 50 50">
                                         <path d="M25 5 L40 45 L25 35 L10 45 Z" fill="currentColor" transform={`rotate(${props?.weatherData?.wind?.deg + 180}, 25, 25)`} />
                                     </svg>
-                                    {props?.weatherData?.wind?.speed}
+                                    <span>{`${props?.weatherData?.wind?.speed} m/s`}</span>
                                 </h2>
                             </div>
                         </Col>
                         <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} lg={{span: 8}} className="current-weather-card-content-col">
                             <div>Visibility</div>
-                            <h2>{props?.weatherData?.visibility}</h2>
+                            <h2>{`${props?.weatherData?.visibility / 1000} km`}</h2>
                         </Col>
                     </Row>
                 </Card>

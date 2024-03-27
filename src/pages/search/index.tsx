@@ -1,13 +1,12 @@
 import type { NextPage } from "next";
 import RootLayout from "@modules/shared/features/layout/RootLayout";
-import CurrentWeatherContainer from "@modules/weather/features/currentWeather/containers/CurrentWeatherContainer";
+import IndexPage from "@/pages";
 
-const IndexPage: NextPage = () => {
+const SearchPage: NextPage = () => {
     return (
         <RootLayout>
             <div className="d-flex">
                 <div style={{ display: 'grid' }}>
-                    <CurrentWeatherContainer/>
                 </div>
                 <div className="grid-flow-col">
                     Test
@@ -17,4 +16,4 @@ const IndexPage: NextPage = () => {
     );
 };
 
-export default IndexPage;
+export default SearchPage;

@@ -23,24 +23,12 @@ const StyledMainNav = styled.ul`
 
 const menuItems = [
     {
-        label: 'Campaigns',
-        pathname: '/campaigns'
+        label: 'Home',
+        pathname: ''
     },
     {
-        label: 'Capture',
-        pathname: '/capture'
-    },
-    {
-        label: 'Screenshots',
-        pathname: '/screenshots'
-    },
-    {
-        label: 'Stats',
-        pathname: '/stats'
-    },
-    {
-        label: 'Filter Screenshots',
-        pathname: '/campaigns/all'
+        label: 'Search',
+        pathname: '/search'
     }
 ];
 
