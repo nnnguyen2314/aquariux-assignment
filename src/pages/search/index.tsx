@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {Col, Row} from "antd";
 import SearchLocationFormContainer
     from "@modules/weather/features/searchLocation/containers/SearchLocationFormContainer";
+import SearchHistoryContainer from "@modules/weather/features/searchLocation/containers/SearchHistoryContainer";
 
 const StyledSearchContainer = styled(Row)`
     margin: 20px;
@@ -16,6 +17,11 @@ const SearchPage: NextPage = () => {
             <StyledSearchContainer>
                 <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} lg={{span: 9}}>
                     <SearchLocationFormContainer />
+                </Col>
+            </StyledSearchContainer>
+            <StyledSearchContainer>
+                <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} lg={{span: 9}}>
+                    <SearchHistoryContainer />
                 </Col>
             </StyledSearchContainer>
         </RootLayout>
