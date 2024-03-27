@@ -75,6 +75,9 @@ const RootLayout = ({ children }: Readonly<{
 }>) => {
     return (
         <html lang="en">
+            <head>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs9J2eTN0IGOqRc_aZXT8dOalJ9cf_sZs&libraries=places"></script>
+            </head>
             <body className={inter.className}>
                 <StyledLayout>
                     <StyledLayoutHeader>
