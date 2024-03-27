@@ -4,7 +4,7 @@ import {
     WEATHER_API_KEY,
     CURRENT_STATE_API_URL,
     FORECAST_API_URL,
-    IWeatherCurrentApiParam, IWeatherForecastApiParam, WEATHER_FORECAST_MODE, WEATHER_MEASURE_UNITS
+    IWeatherCurrentApiParam, IWeatherForecastApiParam, WEATHER_MEASURE_UNITS
 } from "../misc/constants";
 
 const CustomAxios = axios.create({

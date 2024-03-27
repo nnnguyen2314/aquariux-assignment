@@ -28,7 +28,7 @@ const WeatherForecastListItem = (props: IWeatherForecastListItemProps) => {
                 <h4>{moment(props?.weatherInfo?.dt).format('HH:mm')}</h4>
             </Col>
             <Col md={{span: 12}}>
-                <img width={40} className="weather-icon" src={`${WEATHER_ICON_URL}/${props?.weatherInfo?.weather[0]?.icon}.png`} />
+                <img alt={props?.weatherInfo?.weather[0]?.description} width={40} className="weather-icon" src={`${WEATHER_ICON_URL}/${props?.weatherInfo?.weather[0]?.icon}.png`} />
                 <label>{`${props?.weatherInfo?.main?.temp_min}/${props?.weatherInfo?.main?.temp_max}`} &deg;C</label>
             </Col>
             <Col md={{span: 8}}>

@@ -1,5 +1,4 @@
 import jsCookie from 'js-cookie';
-import _ from "lodash";
 
 export enum StorageKey {
     LocationSearchHistoryList = "location_search_history_list"

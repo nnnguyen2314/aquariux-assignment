@@ -61,7 +61,7 @@ const CurrentWeatherCard = (props: CurrentWeatherCardProps) => {
             </Row>}>
             <Row className="current-weather-card-content-row">
                 <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} className="current-weather-card-content-col">
-                    <img className="weather-icon" src={`${WEATHER_ICON_URL}/${props?.weatherData?.weather[0]?.icon}.png`} />
+                    <img alt={props?.weatherData?.weather[0]?.description} className="weather-icon" src={`${WEATHER_ICON_URL}/${props?.weatherData?.weather[0]?.icon}.png`} />
                 </Col>
                 <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} className="current-weather-card-content-col">
                     <h1>{props?.weatherData?.main?.temp}&deg;C</h1>

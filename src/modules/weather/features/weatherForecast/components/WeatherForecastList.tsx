@@ -1,5 +1,5 @@
-import React, {useEffect, useMemo, useState} from 'react';
-import {List, Row} from "antd";
+import React, {useEffect, useState} from 'react';
+import {List} from "antd";
 import _ from 'lodash';
 import WeatherForecastListItem from "@modules/weather/features/weatherForecast/components/WeatherForecastListItem";
 import moment from "moment";
@@ -32,7 +32,6 @@ const WeatherForecastList = (props: IWeatherForecastListProps) => {
 
     useEffect(() => {
         formatWeatherForecastList();
-        console.log(formattedWeatherList);
     }, [props.weatherInfoList]);
 
     return (

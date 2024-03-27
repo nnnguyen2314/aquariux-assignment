@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import useWeatherForecastService from '@modules/weather/hooks/useWeatherForecastService';
-import {IWeatherForecastApiParam, WEATHER_FORECAST_MODE} from "@modules/weather/misc/constants";
+import {IWeatherForecastApiParam} from "@modules/weather/misc/constants";
 import WeatherForecastList from "@modules/weather/features/weatherForecast/components/WeatherForecastList";
 import {Card} from "antd";
-import SearchLocationForm from "@modules/weather/features/searchLocation/components/SearchLocationForm";
 
 interface IWeatherForecastContainerProps {
     keyword?: any;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {useRouter} from "next/router";
 import SearchLocationForm from '@modules/weather/features/searchLocation/components/SearchLocationForm';
 import {LocalStorage} from "@modules/shared/misc/helpers/local-storage.helper";

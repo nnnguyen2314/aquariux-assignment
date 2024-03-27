@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React from 'react';
 import {Col, List, Row} from "antd";
 import {SearchOutlined, DeleteOutlined} from "@ant-design/icons";
 import styled from "styled-components";

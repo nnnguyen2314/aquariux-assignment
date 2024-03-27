@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {LocalStorage} from "@modules/shared/misc/helpers/local-storage.helper";
 import SearchHistoryList from "@modules/weather/features/searchLocation/components/SearchHistoryList";
 import {Card} from "antd";

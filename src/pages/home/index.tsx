@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import Router, {useRouter} from 'next/router';
+import {useRouter} from 'next/router';
 import RootLayout from "@modules/shared/features/layout/RootLayout";
 import CurrentWeatherContainer from "@modules/weather/features/currentWeather/containers/CurrentWeatherContainer";
 import WeatherForecastContainer from "@modules/weather/features/weatherForecast/containers/WeatherForecastContainer";
