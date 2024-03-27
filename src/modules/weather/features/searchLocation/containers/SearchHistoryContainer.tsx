@@ -5,25 +5,32 @@ import {Card} from "antd";
 import {useRouter} from "next/router";
 
 const SearchHistoryContainer = () => {
+    const [historyList, setHistoryList] = useState([]);
     const router = useRouter();
 
-    const historyList: any[] = useMemo(() => {
+    useEffect(() => {
         const storedHistoryList = LocalStorage.getLocationSearchHistoryList();
-        return storedHistoryList ? JSON.parse(storedHistoryList) : [];
-    },  []);
+        setHistoryList(storedHistoryList ? JSON.parse(storedHistoryList) : []);
+    }, []);
 
     const handleClick = (item: string) => {
         router.push({
             pathname: '/home',
             query: { keyword: item },
         });
+    };
+
+    const handleRemoveHistoryItem = (item: string) => {
+        LocalStorage.removeLocationSearchHistoryItem(item);
+        const storedHistoryList = LocalStorage.getLocationSearchHistoryList();
+        setHistoryList(storedHistoryList ? JSON.parse(storedHistoryList) : []);
     }
 
     return (
         <div>
             <h3>Search History</h3>
             <Card>
-                <SearchHistoryList historyList={historyList} handleClick={handleClick} />
+                <SearchHistoryList historyList={historyList} handleClick={handleClick} handleRemoveHistoryItem={handleRemoveHistoryItem} />
             </Card>
         </div>
     );

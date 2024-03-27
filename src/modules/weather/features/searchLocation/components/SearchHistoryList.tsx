@@ -12,6 +12,7 @@ const StyledListItem = styled(Row)`
 interface SearchHistoryListProps {
     historyList: any[];
     handleClick: any;
+    handleRemoveHistoryItem: any;
 }
 
 const SearchHistoryList = (props: SearchHistoryListProps) => {
@@ -20,17 +21,21 @@ const SearchHistoryList = (props: SearchHistoryListProps) => {
             dataSource={props?.historyList}
             renderItem={(item: string, index) => {
                 return (
-                    <StyledListItem onClick={() => {
-                        props?.handleClick(item);
-                    }}>
-                        <Col md={{span: 20}}>
+                    <StyledListItem>
+                        <Col md={{span: 20}} onClick={() => {
+                            props?.handleClick(item)
+                        }}>
                             {item}
                         </Col>
-                        <Col md={{span: 2}}>
+                        <Col md={{span: 2}} onClick={() => {
+                            props?.handleClick(item)
+                        }}>
                             <SearchOutlined />
                         </Col>
                         <Col md={{span: 2}}>
-                            <DeleteOutlined />
+                            <DeleteOutlined onClick={() => {
+                                props?.handleRemoveHistoryItem(item)
+                            }} />
                         </Col>
                     </StyledListItem>
                 )
