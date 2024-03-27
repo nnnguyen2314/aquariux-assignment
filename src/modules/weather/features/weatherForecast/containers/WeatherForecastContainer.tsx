@@ -3,10 +3,10 @@ import useWeatherForecastService from '@modules/weather/hooks/useWeatherForecast
 import {IWeatherForecastApiParam, WEATHER_FORECAST_MODE} from "@modules/weather/misc/constants";
 import WeatherForecastList from "@modules/weather/features/weatherForecast/components/WeatherForecastList";
 import {Card} from "antd";
+import SearchLocationForm from "@modules/weather/features/searchLocation/components/SearchLocationForm";
 
 interface IWeatherForecastContainerProps {
-    city?: any;
-    country?: string;
+    keyword?: any;
 }
 
 const WeatherForecastContainer = (props: IWeatherForecastContainerProps) => {
@@ -23,9 +23,9 @@ const WeatherForecastContainer = (props: IWeatherForecastContainerProps) => {
     };
 
     useEffect(() => {
-        if (props?.city) {
+        if (props?.keyword) {
             fetchWeatherForecast({
-                q: props?.city
+                q: props?.keyword
             });
         } else {
             navigator.geolocation.getCurrentPosition(function(position) {

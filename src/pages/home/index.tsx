@@ -12,7 +12,7 @@ const StyledWeatherContainer = styled(Row)`
     justify-content: center;
 `;
 
-const IndexPage: NextPage = () => {
+const HomePage: NextPage = () => {
     const router = useRouter();
     const keyword = router?.query?.keyword ? router?.query?.keyword : '';
 
@@ -20,7 +20,7 @@ const IndexPage: NextPage = () => {
         <RootLayout>
             <StyledWeatherContainer>
                 <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} lg={{span: 9}}>
-                    <CurrentWeatherContainer city={city} />
+                    <CurrentWeatherContainer keyword={keyword} />
                 </Col>
             </StyledWeatherContainer>
             <StyledWeatherContainer>
@@ -32,4 +32,4 @@ const IndexPage: NextPage = () => {
     );
 };
 
-export default IndexPage;
+export default HomePage;

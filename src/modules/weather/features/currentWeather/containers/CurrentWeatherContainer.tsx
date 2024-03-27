@@ -4,7 +4,7 @@ import {IWeatherCurrentApiParam, WEATHER_MEASURE_UNITS} from "@modules/weather/m
 import CurrentWeatherCard from "@modules/weather/features/currentWeather/components/CurrentWeatherCard";
 
 interface CurrentWeatherContainerProps {
-    city?: any;
+    keyword?: any;
 }
 
 const CurrentWeatherContainer = (props: CurrentWeatherContainerProps) => {
@@ -19,9 +19,9 @@ const CurrentWeatherContainer = (props: CurrentWeatherContainerProps) => {
     };
 
     useEffect(() => {
-        if (props?.city) {
+        if (props?.keyword) {
             fetchCurrentWeatherData({
-                q: props?.city
+                q: props?.keyword
             });
         } else {
             navigator.geolocation.getCurrentPosition(function(position) {
