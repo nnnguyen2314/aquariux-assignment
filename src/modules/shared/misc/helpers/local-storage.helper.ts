@@ -30,7 +30,11 @@ export class LocalStorage {
             if (itemIndex) {
                 ls = ls.splice(itemIndex);
             }
-            jsCookie.set(StorageKey.LocationSearchHistoryList, JSON.stringify(ls));
+            jsCookie.set(StorageKey.LocationSearchHistoryList, ls.length > 0 ? JSON.stringify(ls) : '');
         }
+    };
+
+    static removeAllLocationSearchHistory() {
+        jsCookie.set(StorageKey.LocationSearchHistoryList, '');
     }
 };

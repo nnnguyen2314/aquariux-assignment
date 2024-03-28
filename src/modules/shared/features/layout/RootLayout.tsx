@@ -74,30 +74,23 @@ const RootLayout = ({ children }: Readonly<{
     children: React.ReactNode;
 }>) => {
     return (
-        <html lang="en">
-            <head>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs9J2eTN0IGOqRc_aZXT8dOalJ9cf_sZs&libraries=places"></script>
-            </head>
-            <body className={inter.className}>
-                <StyledLayout>
-                    <StyledLayoutHeader>
-                        <div className="branding">
-                            <div className="branding-logo">
-                                <Link href="/">
-                                    <HomeFilled />
-                                </Link>
-                            </div>
-                            <div className="nav-bar">
-                                <MainNav displayMode="horizontal" />
-                            </div>
-                        </div>
-                    </StyledLayoutHeader>
-                    <StyledContent className="flex min-h-screen flex-col items-center justify-between p-24">
-                        {children}
-                    </StyledContent>
-                </StyledLayout>
-            </body>
-        </html>
+        <StyledLayout>
+            <StyledLayoutHeader>
+                <div className="branding">
+                    <div className="branding-logo">
+                        <Link href="/">
+                            <HomeFilled />
+                        </Link>
+                    </div>
+                    <div className="nav-bar">
+                        <MainNav displayMode="horizontal" />
+                    </div>
+                </div>
+            </StyledLayoutHeader>
+            <StyledContent className="flex min-h-screen flex-col items-center justify-between p-24">
+                {children}
+            </StyledContent>
+        </StyledLayout>
     );
 };
 

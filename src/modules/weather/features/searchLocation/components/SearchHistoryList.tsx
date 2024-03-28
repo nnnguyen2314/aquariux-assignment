@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, List, Row} from "antd";
+import {Button, Col, List, Row} from "antd";
 import {SearchOutlined, DeleteOutlined} from "@ant-design/icons";
 import styled from "styled-components";
 
@@ -27,13 +27,13 @@ const SearchHistoryList = (props: SearchHistoryListProps) => {
                         }}>
                             {item}
                         </Col>
-                        <Col md={{span: 2}} onClick={() => {
-                            props?.handleClick(item)
-                        }}>
-                            <SearchOutlined />
+                        <Col md={{span: 2}}>
+                            <Button type="link" icon={<SearchOutlined />} onClick={() => {
+                                props?.handleClick(item);
+                            }} />
                         </Col>
                         <Col md={{span: 2}}>
-                            <DeleteOutlined onClick={() => {
+                            <Button type="link" icon={<DeleteOutlined />} onClick={() => {
                                 props?.handleRemoveHistoryItem(item)
                             }} />
                         </Col>
